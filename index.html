@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To My Princess Pan</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js"></script>
+</head>
+<body>
+  <header class="appbar">
+    <div class="brand">To My Princess Pan</div>
+    <nav class="tabs" id="tabs" hidden>
+      <button data-tab="letters" class="active">Letters</button>
+      <button data-tab="calendar">Calendar</button>
+    </nav>
+    <button class="logout" id="logoutBtn" hidden>Log out</button>
+  </header>
+
+  <main class="page login" id="loginPage">
+    <div class="login-card">
+      <h2 class="login-title">Choose Account</h2>
+
+      <div class="role-cards" id="roleCards">
+        <button class="role-card selected" data-role="princess" id="cardPrincess">
+          <div class="role-illus">👸</div>
+          <div class="role-name">Princess Pan</div>
+        </button>
+        <button class="role-card" data-role="knight" id="cardKnight">
+          <div class="role-illus">🤴</div>
+          <div class="role-name">Knight K</div>
+        </button>
+      </div>
+
+      <div class="role-hint" id="roleHint">Hello Princess! Tap continue.</div>
+
+      <label class="field" id="pwField" hidden>
+        <span class="field-label">Password</span>
+        <input id="pwInput" type="password" placeholder="Enter Knight K password">
+      </label>
+
+      <button id="loginBtn" class="btn-primary">Continue</button>
+    </div>
+  </main>
+
+  <main class="page app" id="appPage" hidden>
+    <section class="top-summary">
+      <div class="since">
+        <div class="since-title">Loving you since</div>
+        <div class="since-date" id="sinceDate">18 Oct 2022</div>
+        <div class="since-days"><span id="sinceDays">--</span> Days</div>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="panel-letters">
+      <div class="letters-header">
+        <div class="filters">
+          <button class="chip active" data-filter="unread" id="filterUnread">Unread</button>
+          <button class="chip" data-filter="read" id="filterRead">Read</button>
+        </div>
+      </div>
+
+      <div class="uploader" id="uploader" hidden>
+        <label class="file-row">
+          <input type="file" id="fileInput" accept="image/*">
+        </label>
+        <div style="height:3px"></div>
+        <input type="text" id="captionInput" class="caption" placeholder="Add a short caption (optional)">
+        <div style="height:3px"></div>
+        <button id="postBtn" class="btn-primary">Post letter</button>
+        <div class="hint" id="uploadHint"></div>
+      </div>
+
+      <div class="letters-grid" id="lettersGrid"></div>
+    </section>
+
+    <section class="tab-panel" id="panel-calendar" hidden>
+      <div class="calendar" id="calendar"></div>
+      <div class="legend">
+        <span class="dot dot-orange"></span> Unread
+        <span class="dot dot-pink"></span> Read
+        <span class="heart-s small">♥</span> 25th
+      </div>
+    </section>
+  </main>
+
+  <template id="letterTpl">
+    <article class="card letter">
+      <img class="thumb" alt="letter image">
+      <div class="meta">
+        <div class="caption"></div>
+        <div class="ymd"></div>
+      </div>
+      <div class="row actions">
+        <a class="btn-outline download" target="_blank" download>Download</a>
+        <button class="btn-outline mark"></button>
+        <button class="btn-danger delete" hidden>Delete</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
