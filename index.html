@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Princess Pan — Letters</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="topbar">
+      <div class="brand">To My Princess Pan</div>
+      <div id="who" class="who"></div>
+    </header>
+
+    <main class="container">
+      <!-- Login -->
+      <section id="loginView" class="card">
+        <h2 class="card-title">Sign in</h2>
+        <div class="login-roles">
+          <button id="btnPrincess" class="btn btn-pill">I'm Princess Pan</button>
+        </div>
+        <div class="login-roles">
+          <input id="kPass" type="password" placeholder="Knight K password" class="input" />
+          <button id="btnKnight" class="btn btn-pill">I'm Knight K</button>
+        </div>
+        <p class="muted tiny">Password is checked only on your device (no server). You can change it in <code>config.js</code>.</p>
+      </section>
+
+      <!-- Dashboard -->
+      <section id="dashView" class="hidden">
+        <!-- Loving You Since / Days -->
+        <div class="card love">
+          <div class="love-title">Loving You Since</div>
+          <div id="startDate" class="love-date"></div>
+          <div id="daysSince" class="love-days"></div>
+        </div>
+
+        <div class="grid">
+          <!-- Left: Upload (Knight only) -->
+          <div class="col">
+            <div class="card">
+              <div class="card-title">Send a letter</div>
+              <div id="knightOnly" class="knight-only hidden">
+                <input id="fileInput" type="file" accept="image/*" class="input" />
+                <input id="captionInput" type="text" placeholder="Add a short caption (optional)" class="input" />
+                <div id="uploadRow" class="row">
+                  <button id="btnUpload" class="btn btn-primary">Post letter</button>
+                  <div id="progress" class="progress hidden"><div id="bar"></div></div>
+                </div>
+                <p id="uploadHint" class="muted tiny"></p>
+              </div>
+              <div id="princessOnly" class="muted">Princess can view & download the letters here 💖</div>
+            </div>
+            <div class="card">
+              <div class="row between">
+                <div class="card-title">Letters</div>
+                <div class="legend">
+                  <span class="dot orange"></span><span class="legend-text">Unread</span>
+                  <span class="dot pink"></span><span class="legend-text">Read</span>
+                </div>
+              </div>
+              <div id="feed" class="feed"></div>
+            </div>
+          </div>
+
+          <!-- Right: Calendar -->
+          <div class="col">
+            <div class="card">
+              <div class="row between">
+                <div class="card-title">Calendar</div>
+                <div class="row">
+                  <button id="prevMonth" class="btn btn-ghost tiny">◀</button>
+                  <div id="monthLabel" class="month-label"></div>
+                  <button id="nextMonth" class="btn btn-ghost tiny">▶</button>
+                </div>
+              </div>
+              <div id="calendar" class="calendar"></div>
+              <div class="legend legend-bottom">
+                <span class="dot orange"></span><span class="legend-text down1">Unread</span>
+                <span class="dot pink"></span><span class="legend-text down1">Read</span>
+                <span class="heart-solo">♥</span><span class="legend-text down1">25th</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <button id="btnLogout" class="btn btn-ghost">Log out</button>
+    </footer>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
