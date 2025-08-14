@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To My Princess Pan</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>To My Princess Pan</h1>
+  </header>
+
+  <main class="container">
+    <!-- Loving you since -->
+    <section class="love-card">
+      <div class="love-title pink">Loving You Since</div>
+      <div class="love-date" id="since-date">18 Oct 2022</div>
+      <div class="love-days"><span id="days-since">--</span> Days</div>
+    </section>
+
+    <!-- Auth / Role -->
+    <section class="card" id="auth-card">
+      <h2>Choose Account</h2>
+      <div class="role-grid">
+        <button id="btn-princess" class="role-btn" data-role="princess">
+          <div class="role-emoji" aria-hidden="true">👸</div>
+          <div class="role-name">Princess Pan</div>
+          <div class="role-note">No password</div>
+        </button>
+
+        <button id="btn-knight" class="role-btn" data-role="knight">
+          <div class="role-emoji" aria-hidden="true">🤴</div>
+          <div class="role-name">Knight K</div>
+          <div class="role-note">Password required</div>
+        </button>
+      </div>
+
+      <div class="pw-row" id="pw-row" hidden>
+        <input id="pw-input" type="password" placeholder="Enter Knight K password" />
+        <button id="pw-submit" class="primary">Continue</button>
+      </div>
+
+      <div class="muted mt5" id="auth-hint">
+        Role, security, and danger zone sections have 5px spacing between each block everywhere in the app.
+      </div>
+    </section>
+
+    <!-- App Body -->
+    <section class="card" id="app-card" hidden>
+      <div class="tabs">
+        <button class="tab active" data-tab="letters">Letters</button>
+        <button class="tab" data-tab="calendar">Calendar</button>
+        <div class="spacer"></div>
+        <div id="whoami" class="who"></div>
+        <button id="logout" class="link">Log out</button>
+      </div>
+
+      <!-- Letters -->
+      <div id="tab-letters">
+        <!-- Upload (Knight only) -->
+        <div id="upload-wrap" class="upload-block" hidden>
+          <div class="upload-title">Upload letter</div>
+          <div class="row5">
+            <input id="file-input" type="file" accept="image/*" />
+          </div>
+          <div class="row5">
+            <input id="caption-input" type="text" placeholder="Add short caption" />
+          </div>
+          <div class="row5">
+            <button id="btn-upload" class="primary">Post letter</button>
+          </div>
+        </div>
+
+        <div class="filters">
+          <span class="muted">Filter:</span>
+          <label><input type="radio" name="filt" value="all" checked /> All</label>
+          <label><input type="radio" name="filt" value="unread" /> Unread</label>
+          <label><input type="radio" name="filt" value="read" /> Read</label>
+        </div>
+
+        <div id="letters-grid" class="grid"></div>
+      </div>
+
+      <!-- Calendar -->
+      <div id="tab-calendar" hidden>
+        <div class="legend">
+          <span class="dot blue"></span> Unread
+          <span class="dot pink"></span> Read
+          <span class="heart"></span> 25th
+        </div>
+        <div class="cal-head">
+          <button id="prev-month" class="link">&lt; Prev</button>
+          <div id="cal-title" class="mon"></div>
+          <button id="next-month" class="link">Next &gt;</button>
+        </div>
+        <div id="calendar" class="calendar"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot muted">
+    Built with ❤️ — all data is saved on your device (localStorage).
+  </footer>
+
+  <script src="./config.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>
